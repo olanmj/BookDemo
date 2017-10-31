@@ -12,10 +12,12 @@ namespace BookDemo.Models
         public string Title { get; set; }
 
         [DataType(DataType.Date)]
+        [Display(Name ="Publication Date")]
         public DateTime PubDate { get; set; }
 
         public string Category { get; set; }
 
+        [Display(Name ="Author")]
         public int AuthorID { get; set; }
 
         public Author Author { get; set; }
