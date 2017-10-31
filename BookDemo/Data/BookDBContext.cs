@@ -13,6 +13,7 @@ namespace BookDemo.Models
         {
         }
 
-        public DbSet<BookDemo.Models.Book> Book { get; set; }
+        public DbSet<BookDemo.Models.Book> Books { get; set; }
+        public DbSet<BookDemo.Models.Author> Authors { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace BookDemo.Controllers
         // GET: Books
         public async Task<IActionResult> Index()
         {
-            var bookDBContext = _context.Book.Include(b => b.Author);
+            var bookDBContext = _context.Books.Include(b => b.Author);
             return View(await bookDBContext.ToListAsync());
         }
 
@@ -33,7 +33,7 @@ namespace BookDemo.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Book
+            var book = await _context.Books
                 .Include(b => b.Author)
                 .SingleOrDefaultAsync(m => m.BookID == id);
             if (book == null)
@@ -47,7 +47,7 @@ namespace BookDemo.Controllers
         // GET: Books/Create
         public IActionResult Create()
         {
-            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "AuthorID", "AuthorID");
+            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "AuthorID", "LastName");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace BookDemo.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "AuthorID", "AuthorID", book.AuthorID);
+            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "AuthorID", "LastName", book.AuthorID);
             return View(book);
         }
 
@@ -76,12 +76,12 @@ namespace BookDemo.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Book.SingleOrDefaultAsync(m => m.BookID == id);
+            var book = await _context.Books.SingleOrDefaultAsync(m => m.BookID == id);
             if (book == null)
             {
                 return NotFound();
             }
-            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "AuthorID", "AuthorID", book.AuthorID);
+            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "AuthorID", "LastName", book.AuthorID);
             return View(book);
         }
 
@@ -117,7 +117,7 @@ namespace BookDemo.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "AuthorID", "AuthorID", book.AuthorID);
+            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "AuthorID", "LastName", book.AuthorID);
             return View(book);
         }
 
@@ -129,7 +129,7 @@ namespace BookDemo.Controllers
                 return NotFound();
             }
 
-            var book = await _context.Book
+            var book = await _context.Books
                 .Include(b => b.Author)
                 .SingleOrDefaultAsync(m => m.BookID == id);
             if (book == null)
@@ -145,15 +145,15 @@ namespace BookDemo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var book = await _context.Book.SingleOrDefaultAsync(m => m.BookID == id);
-            _context.Book.Remove(book);
+            var book = await _context.Books.SingleOrDefaultAsync(m => m.BookID == id);
+            _context.Books.Remove(book);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BookExists(int id)
         {
-            return _context.Book.Any(e => e.BookID == id);
+            return _context.Books.Any(e => e.BookID == id);
         }
     }
 }
