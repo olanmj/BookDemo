@@ -15,10 +15,10 @@ namespace BookDemo.Models
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-        }
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    base.OnModelCreating(builder);
+        //}
 
         public DbSet<BookDemo.Models.Book> Books { get; set; }
         public DbSet<BookDemo.Models.Author> Authors { get; set; }
