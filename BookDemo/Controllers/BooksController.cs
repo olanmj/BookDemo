@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookDemo.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookDemo.Controllers
 {
@@ -21,6 +23,31 @@ namespace BookDemo.Controllers
         // GET: Books
         public async Task<IActionResult> Index()
         {
+            string cookieVal = Request.Cookies["ZipCode"];
+            if (cookieVal == null)
+            {
+                ViewData["Zip"] = "No cookie";
+                Response.Cookies.Append("ZipCode", "08205");
+            }
+            else
+            {
+                if (cookieVal.Length > 5)
+                {
+                    ViewData["Zip"] = "Updated: " + cookieVal;
+                    Response.Cookies.Delete("ZipCode");
+                } else
+                {
+                    ViewData["Zip"] = "Original: " + cookieVal;
+                    cookieVal += "-9441";
+                    Response.Cookies.Append("ZipCode", cookieVal, new CookieOptions
+                    {
+                        Expires = DateTime.Now.AddYears(1)
+                    });
+                }
+                
+                
+            }
+
             var bookDBContext = _context.Books.Include(b => b.Author);
             return View(await bookDBContext.ToListAsync());
         }
@@ -45,6 +72,7 @@ namespace BookDemo.Controllers
         }
 
         // GET: Books/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "AuthorID", "LastName");
@@ -55,6 +83,7 @@ namespace BookDemo.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BookID,Title,PubDate,Category,AuthorID")] Book book)
         {
@@ -69,6 +98,7 @@ namespace BookDemo.Controllers
         }
 
         // GET: Books/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -89,6 +119,7 @@ namespace BookDemo.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("BookID,Title,PubDate,Category,AuthorID")] Book book)
         {
@@ -122,6 +153,7 @@ namespace BookDemo.Controllers
         }
 
         // GET: Books/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -142,6 +174,7 @@ namespace BookDemo.Controllers
 
         // POST: Books/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
