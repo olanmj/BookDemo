@@ -11,9 +11,9 @@ namespace BookDemo.Models
         public int BookID { get; set; }
         public string Title { get; set; }
 
-        [DataType(DataType.Date)]
+      //  [DataType(DataType.Date)]
         [Display(Name ="Publication Date")]
-        public DateTime PubDate { get; set; }
+        public int PubDate { get; set; }
 
         public string Category { get; set; }
 

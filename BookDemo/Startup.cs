@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using BookDemo.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace BookDemo
 {
@@ -33,7 +32,7 @@ namespace BookDemo
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
-                options.Password.RequiredUniqueChars = 3;
+                options.Password.RequiredUniqueChars = 1;
 
                 // User settings
                 options.User.RequireUniqueEmail = true;
@@ -44,9 +43,9 @@ namespace BookDemo
                 // Cookie settings
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(2);
-                options.LoginPath = "/Account/Login"; 
-                options.LogoutPath = "/Account/Logout"; 
-                options.AccessDeniedPath = "/Account/AccessDenied"; 
+                options.LoginPath = "/Account/Login";
+                options.LogoutPath = "/Account/Logout";
+                options.AccessDeniedPath = "/Account/AccessDenied";
                 options.SlidingExpiration = true;
             });
 

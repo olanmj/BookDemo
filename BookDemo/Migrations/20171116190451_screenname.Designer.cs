@@ -11,8 +11,8 @@ using System;
 namespace BookDemo.Migrations
 {
     [DbContext(typeof(BookDBContext))]
-    [Migration("20171113215857_accounts")]
-    partial class accounts
+    [Migration("20171116190451_screenname")]
+    partial class screenname
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,6 +51,8 @@ namespace BookDemo.Migrations
                     b.Property<string>("PhoneNumber");
 
                     b.Property<bool>("PhoneNumberConfirmed");
+
+                    b.Property<string>("ScreenName");
 
                     b.Property<string>("SecurityStamp");
 
@@ -95,7 +97,7 @@ namespace BookDemo.Migrations
 
                     b.Property<string>("Category");
 
-                    b.Property<DateTime>("PubDate");
+                    b.Property<int>("PubDate");
 
                     b.Property<string>("Title");
 

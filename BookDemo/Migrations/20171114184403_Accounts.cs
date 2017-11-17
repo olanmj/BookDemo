@@ -5,45 +5,10 @@ using System.Collections.Generic;
 
 namespace BookDemo.Migrations
 {
-    public partial class accounts : Migration
+    public partial class Accounts : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            //migrationBuilder.DropForeignKey(
-            //    name: "FK_Book_Author_AuthorID",
-            //    table: "Book");
-
-            //migrationBuilder.DropPrimaryKey(
-            //    name: "PK_Book",
-            //    table: "Book");
-
-            //migrationBuilder.DropPrimaryKey(
-            //    name: "PK_Author",
-            //    table: "Author");
-
-            //migrationBuilder.RenameTable(
-            //    name: "Book",
-            //    newName: "Books");
-
-            //migrationBuilder.RenameTable(
-            //    name: "Author",
-            //    newName: "Authors");
-
-            //migrationBuilder.RenameIndex(
-            //    name: "IX_Book_AuthorID",
-            //    table: "Books",
-            //    newName: "IX_Books_AuthorID");
-
-            //migrationBuilder.AddPrimaryKey(
-            //    name: "PK_Books",
-            //    table: "Books",
-            //    column: "BookID");
-
-            //migrationBuilder.AddPrimaryKey(
-            //    name: "PK_Authors",
-            //    table: "Authors",
-            //    column: "AuthorID");
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -228,18 +193,12 @@ namespace BookDemo.Migrations
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
 
-            //migrationBuilder.AddForeignKey(
-            //    name: "FK_Books_Authors_AuthorID",
-            //    table: "Books",
-            //    column: "AuthorID",
-            //    principalTable: "Authors",
-            //    principalColumn: "AuthorID",
-            //    onDelete: ReferentialAction.Cascade);
+           
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -261,7 +220,14 @@ namespace BookDemo.Migrations
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
-            
+
+
+
+
+
+
+
+
 
            
         }
