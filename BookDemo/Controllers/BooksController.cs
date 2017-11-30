@@ -23,30 +23,6 @@ namespace BookDemo.Controllers
         // GET: Books
         public async Task<IActionResult> Index()
         {
-            //string cookieVal = Request.Cookies["ZipCode"];
-            //if (cookieVal == null)
-            //{
-            //    ViewData["Zip"] = "No cookie";
-            //    Response.Cookies.Append("ZipCode", "08205");
-            //}
-            //else
-            //{
-            //    if (cookieVal.Length > 5)
-            //    {
-            //        ViewData["Zip"] = "Updated: " + cookieVal;
-            //        Response.Cookies.Delete("ZipCode");
-            //    } else
-            //    {
-            //        ViewData["Zip"] = "Original: " + cookieVal;
-            //        cookieVal += "-9441";
-            //        Response.Cookies.Append("ZipCode", cookieVal, new CookieOptions
-            //        {
-            //            Expires = DateTime.Now.AddYears(1)
-            //        });
-            //    }
-                    
-            //}
-
             var bookDBContext = _context.Books.Include(b => b.Author);
             return View(await bookDBContext.ToListAsync());
         }
