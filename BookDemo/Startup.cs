@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using BookDemo.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.SpaServices.Webpack;
 
 namespace BookDemo
 {
@@ -65,7 +66,10 @@ namespace BookDemo
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
+                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+                {
+                    HotModuleReplacement = true
+                });
             }
             else
             {
@@ -79,6 +83,9 @@ namespace BookDemo
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapSpaFallbackRoute(
+                   name: "spa-fallback",
+                   defaults: new { controller = "Home", action = "Index" });
             });
         }
     }

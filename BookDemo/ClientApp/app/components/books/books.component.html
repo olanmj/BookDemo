@@ -1,0 +1,22 @@
+<h1>Book List</h1>
+
+<p *ngIf="!books"><em>Loading...</em></p>
+
+<table class='table' *ngIf="books" >
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Publication Year</th>
+            <th>Category</th>
+            <th>Author</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books" >
+            <td>{{ book.title }}</td>
+            <td>{{ book.pubDate }}</td>
+            <td>{{ book.category }}</td>
+            <td>{{ book.author.firstName + " " + book.author.lastName }}</td>
+        </tr>
+    </tbody>
+</table>

@@ -9,11 +9,13 @@ namespace BookDemo.Models
     public class Book
     {
         public int BookID { get; set; }
+
+        [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
 
-        [DataType(DataType.Date)]
-        [Display(Name ="Publication Date")]
-        public DateTime PubDate { get; set; }
+        [Display(Name ="Publication Year")]
+        [Required(ErrorMessage ="Publication year is required")]
+        public int PubDate { get; set; }
 
         public string Category { get; set; }
 
