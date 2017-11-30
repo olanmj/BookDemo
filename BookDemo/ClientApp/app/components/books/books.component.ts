@@ -18,9 +18,16 @@ export class BooksComponent  {
         }, error => console.error(error));
     }
 
+    getBook(id: number) {
+        let book = this.books.find(b => b.bookID == id);
+        if (book) {
+            console.log("Selected: " + book.title);
+        }
+    }
 }
 
 interface Book {
+    bookID: number;
     title: string;
     pubDate: number;
     category: string;

@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let book of books" >
+        <tr class="rowlink" *ngFor="let book of books" (click)="getBook(book.bookID)">
             <td>{{ book.title }}</td>
             <td>{{ book.pubDate }}</td>
             <td>{{ book.category }}</td>

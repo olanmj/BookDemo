@@ -37,3 +37,9 @@
 footer {
     text-align: right;
 }
+
+.rowlink:hover {
+    background-color: #4985c6;
+    color: white;
+    cursor: pointer;
+}

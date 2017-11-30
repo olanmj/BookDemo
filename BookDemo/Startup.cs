@@ -38,7 +38,6 @@ namespace BookDemo
 
                 // User settings
                 options.User.RequireUniqueEmail = true;
-                options.User.AllowedUserNameCharacters = "ABCDEFGHIJKLMNOPQUSTUVWXYZ abcdefghijklmnopqrstuvwxyz";
             });
 
             services.ConfigureApplicationCookie(options =>
