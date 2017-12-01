@@ -11,8 +11,8 @@ using System;
 namespace BookDemo.Migrations
 {
     [DbContext(typeof(BookDBContext))]
-    [Migration("20171116190451_screenname")]
-    partial class screenname
+    [Migration("20171201043118_all")]
+    partial class all
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -99,7 +99,8 @@ namespace BookDemo.Migrations
 
                     b.Property<int>("PubDate");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Title")
+                        .IsRequired();
 
                     b.HasKey("BookID");
 
