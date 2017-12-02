@@ -1,6 +1,7 @@
 <h1>Book List</h1>
 
-<p *ngIf="!books"><em>Loading...</em></p>
+<p *ngIf="!books"><i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+<em class="sr-only">Loading...</em></p>
 
 <table class='table' *ngIf="books" >
     <thead>

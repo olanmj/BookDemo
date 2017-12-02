@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f517833fdd86c41cba70"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f6a7d5be5503bb52b8a1"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -70463,7 +70463,7 @@ module.exports = "<div class='container-fluid'>\r\n    <div class='row'>\r\n    
 /* 62 */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Book List</h1>\r\n\r\n<p *ngIf=\"!books\"><em>Loading...</em></p>\r\n\r\n<table class='table' *ngIf=\"books\" >\r\n    <thead>\r\n        <tr>\r\n            <th>Title</th>\r\n            <th>Publication Year</th>\r\n            <th>Category</th>\r\n            <th>Author</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr class=\"rowlink\" *ngFor=\"let book of books\" (click)=\"getBook(book.bookID)\">\r\n            <td>{{ book.title }}</td>\r\n            <td>{{ book.pubDate }}</td>\r\n            <td>{{ book.category }}</td>\r\n            <td>{{ book.author.firstName + \" \" + book.author.lastName }}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n";
+module.exports = "<h1>Book List</h1>\r\n\r\n<p *ngIf=\"!books\"><i class=\"fa fa-spinner fa-pulse fa-2x fa-fw\"></i>\r\n<em class=\"sr-only\">Loading...</em></p>\r\n\r\n<table class='table' *ngIf=\"books\" >\r\n    <thead>\r\n        <tr>\r\n            <th>Title</th>\r\n            <th>Publication Year</th>\r\n            <th>Category</th>\r\n            <th>Author</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr class=\"rowlink\" *ngFor=\"let book of books\" (click)=\"getBook(book.bookID)\">\r\n            <td>{{ book.title }}</td>\r\n            <td>{{ book.pubDate }}</td>\r\n            <td>{{ book.category }}</td>\r\n            <td>{{ book.author.firstName + \" \" + book.author.lastName }}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n";
 
 /***/ }),
 /* 63 */
@@ -70487,7 +70487,7 @@ module.exports = "<h1>Welcome to the Angular version of the Book App</h1>\r\n\r\
 /* 66 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class='main-nav'>\r\n    <div class='navbar navbar-inverse'>\r\n        <div class='navbar-header'>\r\n            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>\r\n                <span class='sr-only'>Toggle navigation</span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n            </button>\r\n            <a class='navbar-brand' [routerLink]=\"['/home']\">BookClient</a>\r\n        </div>\r\n        <div class='clearfix'></div>\r\n        <div class='navbar-collapse collapse'>\r\n            <ul class='nav navbar-nav'>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/home']\">\r\n                        <span class='glyphicon glyphicon-home'></span> Home\r\n                    </a>\r\n                </li>\r\n                <!--<li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/counter']\">\r\n                        <span class='glyphicon glyphicon-education'></span> Counter\r\n                    </a>\r\n                </li>-->\r\n\r\n\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/books']\">\r\n                        <span class='glyphicon glyphicon-book'></span> Books\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
+module.exports = "<div class='main-nav'>\r\n    <div class='navbar navbar-inverse'>\r\n        <div class='navbar-header'>\r\n            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>\r\n                <span class='sr-only'>Toggle navigation</span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n            </button>\r\n            <a class='navbar-brand' [routerLink]=\"['/home']\">BookClient</a>\r\n        </div>\r\n        <div class='clearfix'></div>\r\n        <div class='navbar-collapse collapse'>\r\n            <ul class='nav navbar-nav'>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/home']\">\r\n                        <i class=\"fa fa-home\" aria-hidden=\"true\"></i> Home\r\n                    </a>\r\n                </li>\r\n\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/books']\">\r\n                        <i class=\"fa fa-book\" aria-hidden=\"true\"></i> Books\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
 
 /***/ }),
 /* 67 */
