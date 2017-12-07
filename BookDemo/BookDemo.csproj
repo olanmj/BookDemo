@@ -21,7 +21,17 @@
   </ItemGroup>
 
 <ItemGroup>
+  <None Remove="ClientApp\app\material.module.ts" />
+</ItemGroup>
+
+<ItemGroup>
   <Content Include="Views\Home\Index.cshtml.bak" />
+</ItemGroup>
+
+<ItemGroup>
+  <TypeScriptCompile Include="ClientApp\app\components\books\add-book.component.ts" />
+  <TypeScriptCompile Include="ClientApp\app\components\books\book.component.ts" />
+  <TypeScriptCompile Include="ClientApp\app\material.module.ts" />
 </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

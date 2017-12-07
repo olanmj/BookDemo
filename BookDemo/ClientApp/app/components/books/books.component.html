@@ -3,6 +3,8 @@
 <p *ngIf="!books"><i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
 <em class="sr-only">Loading...</em></p>
 
+<a [routerLink]="['/addbook']" class="btn btn-lg btn-info" *ngIf="books">ADD A BOOK</a>
+
 <table class='table' *ngIf="books" >
     <thead>
         <tr>
@@ -13,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="rowlink" *ngFor="let book of books" (click)="getBook(book.bookID)">
+        <tr class="rowlink" *ngFor="let book of books" [routerLink]="['/book/', book.bookID]">
             <td>{{ book.title }}</td>
             <td>{{ book.pubDate }}</td>
             <td>{{ book.category }}</td>

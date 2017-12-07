@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+//import { HttpClientModule } from '@angular/common/common/';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './components/app/app.component';
@@ -10,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { BooksComponent } from './components/books/books.component';
+import { BookComponent } from './components/books/book.component';
+import { AddBookComponent } from './components/books/add-book.component';
 
 @NgModule({
     declarations: [
@@ -18,11 +21,14 @@ import { BooksComponent } from './components/books/books.component';
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        BooksComponent
+        BooksComponent,
+        BookComponent,
+        AddBookComponent
     ],
     imports: [
         CommonModule,
         HttpModule,
+        //HttpClientModule,
         FormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,6 +36,8 @@ import { BooksComponent } from './components/books/books.component';
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'books', component: BooksComponent },
+            { path: 'book/:id', component: BookComponent },
+            { path: 'addbook', component: AddBookComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
